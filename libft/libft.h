@@ -21,7 +21,6 @@
 # include <strings.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <stdarg.h>
 
 typedef struct s_list
@@ -33,14 +32,14 @@ typedef struct s_list
 typedef struct s_listgnl
 {
 	int					fd;
+	char				*buf;
 	char				*line;
-	char				*leftovers;
+	int					tdl;
 	int					i;
-	int					j;
-	ssize_t				hmb_read;
-	ssize_t				nb_of_read;
+	int					hmb_read;
+	int					nb_of_read;
 	struct s_listgnl	*next;
-}		t_listgnl;
+}	t_listgnl;
 
 // CHAR
 int			ft_isalpha(int c);
@@ -133,17 +132,16 @@ void		ft_putmemory_error(unsigned long long int nbr, char *base, int *i);
 int			ft_is_a_specifier_error(const char c);
 
 //GNL_TDL
-t_listgnl	*ft_lstnewgnl(int entry_fd);
-void		ft_lstadd_backgnl(t_listgnl **first_elem, t_listgnl *new);
-t_listgnl	*ft_go_to_linkgnl(t_listgnl **first_elem, int fd);
-char		*ft_erase_linkgnl(t_listgnl **first_elem, t_listgnl *temp);
+
 char		*get_next_line(int fd);
 void		ft_read_file_and_fill_buf(t_listgnl *temp);
-void		ft_fill_line_and_sort_leftovers(t_listgnl *temp);
-void		ft_manage_buf(t_listgnl *temp);
-void		ft_sort_leftovers(t_listgnl *temp);
-int			check_string(t_listgnl *temp);
-char		*ft_increase_string_size(t_listgnl *temp, char *string);
+void		ft_fill_line(t_listgnl *temp);
+char		*ft_increase_string_size(t_listgnl *temp);
+char		*ft_erase_linkgnl(t_listgnl **first_elem, t_listgnl *temp);
+t_listgnl	*ft_lstnewgnl(int entry_fd);
+t_listgnl	*ft_go_to_linkgnl(t_listgnl **first_elem, int fd);
+void		ft_lst_addbackgnl(t_listgnl **first_elem, t_listgnl *new);
+int			check_string(char *str);
 void		*ft_callocgnl(int size);
 
 #endif

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../libft.h"
 
 char	*get_next_line(int fd)
 {
@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	if (first_elem == NULL)
 		first_elem = ft_lstnewgnl(fd);
-	temp = ft_go_to_link(&first_elem, fd);
+	temp = ft_go_to_linkgnl(&first_elem, fd);
 	temp->i = 0;
 	temp->nb_of_read = 0;
 	temp->line = NULL;
@@ -29,7 +29,7 @@ char	*get_next_line(int fd)
 	if (temp->hmb_read < BUFFER_SIZE)
 	{
 		if (temp->line == NULL || temp->line[0] == '\0')
-			return (ft_erase_link(&first_elem, temp));
+			return (ft_erase_linkgnl(&first_elem, temp));
 	}
 	return (temp->line);
 }
@@ -101,7 +101,7 @@ char	*ft_increase_string_size(t_listgnl *temp)
 	return (dup);
 }
 
-char	*ft_erase_link(t_listgnl **first_elem, t_listgnl *temp)
+char	*ft_erase_linkgnl(t_listgnl **first_elem, t_listgnl *temp)
 {
 	t_listgnl	*copy;
 	t_listgnl	*current;

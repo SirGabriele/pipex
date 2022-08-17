@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../libft.h"
 
 t_listgnl	*ft_lstnewgnl(int entry_fd)
 {
@@ -30,7 +30,7 @@ t_listgnl	*ft_lstnewgnl(int entry_fd)
 	return (elem);
 }
 
-t_listgnl	*ft_go_to_link(t_listgnl **first_elem, int fd)
+t_listgnl	*ft_go_to_linkgnl(t_listgnl **first_elem, int fd)
 {
 	t_listgnl	*copy;
 	t_listgnl	*new;

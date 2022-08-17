@@ -13,7 +13,6 @@
 #ifndef FT_PRINTF_ERROR_H
 # define FT_PRINTF_ERROR_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
 
