@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/23 11:38:53 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/23 14:46:04 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = pipex
 LIBFT = libft/libft.a
 
 SRC = main.c		\
-	cmd_exec.c		\
 	clear_program.c
 
 INIT = init_pipex.c
@@ -27,10 +26,14 @@ CHECK = check_args.c		\
 LL = ft_lstnew_pipex.c		\
 	ft_lstaddback_pipex.c
 
+EXEC = cmd_exec.c				\
+	two_commands_requested.c
+
 SRCS = $(addprefix src/, $(SRC))		\
 	$(addprefix src/init/, $(INIT))		\
 	$(addprefix src/check/, $(CHECK))	\
-	$(addprefix src/LL/, $(LL))
+	$(addprefix src/LL/, $(LL))			\
+	$(addprefix src/exec/, $(EXEC))
 
 CC = gcc
 
