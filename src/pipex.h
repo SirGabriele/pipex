@@ -42,6 +42,7 @@ typedef struct s_pipex
 	struct s_pipex_cmd	*first_cmd;
 }	t_pipex;
 
+void		cmd_exec(t_pipex *pipex, int argc, char **argv, char **env);
 void		clear_program(t_pipex *pipex, char *perror_str);
 
 //init
@@ -52,14 +53,8 @@ void		check_args(t_pipex *pipex, int argc, char **argv, char **env);
 void		verify_files_access(t_pipex *pipex, int argc, char **argv);
 void		verify_cmd_access(t_pipex *pipex, int ac, char **av, char **env);
 
-//utils
-int			path_line_length(char *copy);
-
 //LL
 void		ft_lstaddback_pipex(t_pipex *pipex, t_pipex_cmd *new);
 t_pipex_cmd	*ft_lstnew_pipex(t_pipex *pipex);
-
-//exec
-void		cmd_exec(t_pipex *pipex, int argc, char **argv, char **env);
 
 #endif

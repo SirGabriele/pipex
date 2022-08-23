@@ -55,6 +55,23 @@ static void	fill_tab_cmd(t_pipex *pipex, int argc, char **argv)
 	}
 }
 
+static int	path_line_length(char *copy)
+{
+	int		i;
+	char	*temp;
+	int		count;
+
+	count = 0;
+	i = 0;
+	temp = copy;
+	while (temp[i] != '\n' && temp[i] != '\0')
+	{
+		i++;
+		count++;
+	}
+	return (count);
+}
+
 static char	*extract_path_lines(t_pipex *pipex, char **env)
 {
 	char	*copy_env;

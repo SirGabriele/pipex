@@ -1,2 +1,0 @@
-Oskur, wc
-ll)
