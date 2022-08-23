@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/17 15:12:43 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/23 07:41:18 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,28 @@ NAME = pipex
 
 LIBFT = libft/libft.a
 
-SRC = main.c			\
-	clear_program.c		\
-	child_1_process.c	\
-	parent_process.c	\
-	check_args.c
+SRC = main.c				\
+	clear_program.c
 
-SRCS = $(addprefix src/, $(SRC))
+INIT = init_pipex.c
+
+CHECK = check_args.c		\
+	verify_files_access.c	\
+	verify_cmd_access.c
+
+EXEC = cmd_exec.c
+
+UTILS = utils1.c
+
+LL = ft_lstnew_pipex.c		\
+	ft_lstaddback_pipex.c
+
+SRCS = $(addprefix src/, $(SRC))		\
+	$(addprefix src/init/, $(INIT))		\
+	$(addprefix src/check/, $(CHECK))	\
+	$(addprefix src/utils/, $(UTILS))	\
+	$(addprefix src/LL/, $(LL))			\
+	$(addprefix src/exec/, $(EXEC))
 
 CC = gcc
 

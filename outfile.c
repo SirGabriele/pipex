@@ -1,0 +1,2 @@
+Oskur, wc
+ll)

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parent_process.c                                   :+:      :+:    :+:   */
+/*   ft_lstaddback_pipex.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:22:38 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/17 14:37:55 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/08/23 04:30:53 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/08/23 04:33:22 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
-void	parent_process(pid_t pid1, int *pipefd)
+void	ft_lstaddback_pipex(t_pipex *pipex, t_pipex_cmd *new)
 {
-	char	buf;
+	t_pipex_cmd	*copy;
 
-	close(pipefd[1]);
-	while (read(pipefd[0], &buf, sizeof(char)) > 0)
-		write(1, &buf, 1);
-	close(pipefd[0]);
-	waitpid(pid1, NULL, 0);
+	copy = pipex->first_cmd;
+	while (copy->next != NULL)
+		copy = copy->next;
+	copy->next = new;
 }

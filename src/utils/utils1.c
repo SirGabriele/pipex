@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   child_1_process.c                                  :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:12:56 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/17 15:25:33 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/08/23 02:34:11 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/08/23 02:35:03 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
-void	child_1_process(int *pipefd, char **argvec, char **env)
+int	path_line_length(char *copy)
 {
-	dup2(pipefd[1], 1);
-	close(pipefd[0]);
-	close(pipefd[1]);
-	execve(argvec[0], argvec, env);
-	exit(0);
+	int		i;
+	char	*temp;
+	int		count;
+
+	count = 0;
+	i = 0;
+	temp = copy;
+	while (temp[i] != '\n' && temp[i] != '\0')
+	{
+		i++;
+		count++;
+	}
+	return (count);
 }
