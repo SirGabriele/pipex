@@ -16,7 +16,7 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	*pipex;
 
-	if (argc < 5)
+	if (argc != 5)
 		return (ft_printf("Usage is <<< ./pipex infile cmd_1 cmd_2"\
 		" ... cmd_n outfile >>>\n"));
 	pipex = ft_calloc(1, sizeof(t_pipex));

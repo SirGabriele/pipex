@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 17:08:52 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/24 18:40:00 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/24 19:28:43 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ void	several_commands_requested(t_pipex *p, int ac, char **av, char **env)
 			child_last(p, i, av, env);
 		else if (p->tab_pid[i] == 0)
 			child_n(p, i, env);
-		if (i > 1)
-			close(p->pipefd[i - 1][1]);
-		if (i > 2)
+		if (i > 0)
 			close(p->pipefd[i - 1][0]);
+		if (i < ac - 4)
+			close(p->pipefd[i][1]);
 	}
 	i = -1;
 	while (++i < ac - 3)
