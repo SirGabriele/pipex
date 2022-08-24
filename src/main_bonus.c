@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "pipex_bonus.h"
 
 int	main(int argc, char **argv, char **env)
 {
@@ -24,8 +24,8 @@ int	main(int argc, char **argv, char **env)
 		return (-1);
 	init_pipex(pipex, argc);
 	check_args(pipex, argc, argv, env);
-	if (argc == 5)
-		two_commands_requested(pipex, argv, env);	
+	if (argc > 5)
+		prepare_bonus(pipex, argc, argv, env);	
 	clear_program(pipex, NULL);
 	return (0);
 }
