@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/24 18:13:06 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/24 19:55:16 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ SRCS_BONUS = $(addprefix src/, $(SRC_BONUS))	\
 	$(addprefix src/init/, $(INIT))				\
 	$(addprefix src/check/, $(CHECK))			\
 	$(addprefix src/LL/, $(LL))					\
-	$(addprefix src/exec/, $(EXEC))				\
 	$(addprefix src/exec/, $(EXEC_BONUS))
 
 CC = gcc

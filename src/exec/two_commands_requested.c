@@ -12,7 +12,7 @@
 
 #include "../pipex.h"
 
-static void	child_last(t_pipex *pipex, char **argv, char **env, pid_t pid1)
+static void	child_last(t_pipex *pipex, char **argv, char **env)
 {
 	t_pipex_cmd	*copy;
 
@@ -22,7 +22,6 @@ static void	child_last(t_pipex *pipex, char **argv, char **env, pid_t pid1)
 	pipex->outfile = open(argv[4], O_WRONLY | O_TRUNC);
 	dup2(pipex->outfile, STD_OUT);
 	close(pipex->outfile);
-	waitpid(pid1, NULL, WUNTRACED);
 	copy = pipex->first_cmd->next;
 	if (execve(copy->correct_path, copy->tab_cmd, env) == -1)
 		clear_program(pipex, "Execve child_last failed");
@@ -56,7 +55,7 @@ void	two_commands_requested(t_pipex *pipex, char **argv, char **env)
 	if (pid2 == -1)
 		clear_program(pipex, "Fork 2 failed");
 	else if (pid2 == 0)
-		child_last(pipex, argv, env, pid1);
+		child_last(pipex, argv, env);
 	close(pipex->pipefd[0]);
 	close(pipex->pipefd[1]);
 	waitpid(pid1, NULL, WUNTRACED);
