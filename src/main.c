@@ -25,7 +25,7 @@ int	main(int argc, char **argv, char **env)
 	init_pipex(pipex, argc);
 	check_args(pipex, argc, argv, env);
 	if (argc == 5)
-		two_commands_requested(pipex, argv, env);	
+		two_commands_requested(pipex, argv, env);
 	clear_program(pipex, NULL);
 	return (0);
 }

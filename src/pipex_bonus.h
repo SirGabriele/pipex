@@ -24,6 +24,7 @@
 # define STD_IN 0
 # define STD_OUT 1
 # define STD_ERR 2
+# define LIMITER argv[2]
 
 typedef struct s_pipex_cmd
 {
@@ -47,18 +48,22 @@ void		clear_program(t_pipex *pipex, char *perror_str);
 
 //init
 void		init_pipex(t_pipex *pipex, int argc);
+void		init_pipex_here_doc(t_pipex *pipex, int argc);
 
 //check
-void		check_args(t_pipex *pipex, int argc, char **argv, char **env);
+void		check_args_bonus(t_pipex *pipex, int argc, char **argv, char **env);
 void		verify_files_access(t_pipex *pipex, int argc, char **argv);
+void		verify_files_access_here_doc(t_pipex *pipex, int argc, char **argv);
 void		verify_cmd_access(t_pipex *pipex, int ac, char **av, char **env);
-
+void		verify_cmd_access_here_doc(t_pipex *pipex, int argc, char **argv, char **env);
 //LL
 void		ft_lstaddback_pipex(t_pipex *pipex, t_pipex_cmd *new);
 t_pipex_cmd	*ft_lstnew_pipex(t_pipex *pipex);
 
 //exec
 void		prepare_bonus(t_pipex *pipex, int argc, char **argv, char **env);
+void		two_commands_requested_bonus(t_pipex *pipex, char **argv, char **env);
 void		several_commands_requested(t_pipex *pipex, int argc, char **argv, char **env);
+void		here_doc_requested(t_pipex *pipex, char **argv);
 
 #endif

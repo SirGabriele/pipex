@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/24 19:55:16 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/08/27 17:11:32 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,28 @@ SRC_BONUS = main_bonus.c	\
 
 INIT = init_pipex.c
 
+INIT_BONUS = init_pipex.c		\
+	init_pipex_here_doc_bonus.c
+
 CHECK = check_args.c		\
 	verify_files_access.c	\
 	verify_cmd_access.c
+
+CHECK_BONUS = check_args_bonus.c	\
+	verify_files_access.c			\
+	verify_files_access_here_doc.c	\
+	verify_cmd_access.c				\
+	verify_cmd_access_here_doc.c
 
 LL = ft_lstnew_pipex.c		\
 	ft_lstaddback_pipex.c
 
 EXEC =	two_commands_requested.c
 
-EXEC_BONUS = prepare_bonus.c	\
-	several_commands_requested_bonus.c
+EXEC_BONUS = prepare_bonus.c			\
+	two_commands_requested_bonus.c		\
+	several_commands_requested_bonus.c	\
+	here_doc_requested.c
 
 SRCS = $(addprefix src/, $(SRC))		\
 	$(addprefix src/init/, $(INIT))		\
@@ -43,8 +54,8 @@ SRCS = $(addprefix src/, $(SRC))		\
 	$(addprefix src/exec/, $(EXEC))
 
 SRCS_BONUS = $(addprefix src/, $(SRC_BONUS))	\
-	$(addprefix src/init/, $(INIT))				\
-	$(addprefix src/check/, $(CHECK))			\
+	$(addprefix src/init/, $(INIT_BONUS))		\
+	$(addprefix src/check/, $(CHECK_BONUS))		\
 	$(addprefix src/LL/, $(LL))					\
 	$(addprefix src/exec/, $(EXEC_BONUS))
 
