@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:19:41 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/27 20:44:19 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:01:58 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	child_last(t_pipex *pipex, int *pipefd, char **argv, char **env)
 		clear_program(pipex, "Execve child_last failed");
 }
 
-static void	child_one(t_pipex *p, int *pipefd,  char **env, int *pipehd)
+static void	child_one(t_pipex *p, int *pipefd, char **env, int *pipehd)
 {
 	close(pipefd[0]);
 	dup2(pipehd[0], STD_IN);

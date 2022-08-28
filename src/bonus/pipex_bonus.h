@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:01:53 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/27 20:17:14 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:01:27 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_pipex_cmd	*ft_lstnew_pipex(t_pipex *pipex);
 
 //exec
 void		prepare_bonus(t_pipex *pipex, int argc, char **argv, char **env);
-void		two_commands_requested(t_pipex *p, char **av, char **en, int *pipehd);
+void		two_commands_requested(t_pipex *p, char **av, char **en, int *pipe);
 void		several_commands_requested(t_pipex *p, int c, char **v, char **en);
 void		here_doc_requested(t_pipex *pipex, char **argv, char **env);
 

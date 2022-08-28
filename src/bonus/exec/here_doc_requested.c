@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:56:46 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/27 20:19:10 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:02:19 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,11 @@ void	here_doc_requested(t_pipex *pipex, char **argv, char **env)
 {
 	int		pipehd[2];
 	int		std_in_copy;
-//	char	buf;
 
 	if (pipe(pipehd) == -1)
 		clear_program(pipex, "In HDR.c, malloc failed");
 	std_in_copy = dup(STD_IN);
 	read_loop(std_in_copy, argv, pipehd);
-/*	while (read(pipehd[0], &buf, 1) > 0)
-		write(1, &buf, 1);*/
 	two_commands_requested(pipex, argv, env, pipehd);
 	close(pipehd[0]);
 }
