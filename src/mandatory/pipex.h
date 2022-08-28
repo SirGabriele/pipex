@@ -14,10 +14,7 @@
 # define PIPEX_H
 
 # include "../../libft/libft.h"
-# include <errno.h>
 # include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
 # include <sys/wait.h>
 # include <fcntl.h>
 
