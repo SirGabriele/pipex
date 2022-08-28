@@ -25,13 +25,13 @@ static void	verify_access(t_pipex *pipex, t_pipex_cmd *copy)
 		path_line = ft_strjoin(path_line_temp, copy->tab_cmd[0]);
 		free(path_line_temp);
 		path_line_temp = NULL;
-		if (access(path_line, F_OK) == -1 && i == 9)
+		if (access(path_line, F_OK | X_OK) == -1 && i == 9)
 		{
 			free(path_line);
 			path_line = NULL;
 			clear_program(pipex, "Access failed");
 		}
-		else if (access(path_line, F_OK) == 0)
+		else if (access(path_line, F_OK | X_OK) == 0)
 			break ;
 		free(path_line);
 		path_line = NULL;
@@ -109,7 +109,7 @@ void	verify_cmd_access(t_pipex *pipex, int argc, char **argv, char **env)
 	fill_tab_cmd(pipex, argc, argv);
 	while (++i < argc - 1)
 	{
-		if (access(copy->tab_cmd[0], F_OK) == 0)
+		if (access(copy->tab_cmd[0], F_OK | X_OK) == 0)
 			copy->correct_path = ft_strdup(copy->tab_cmd[0]);
 		else
 			verify_access(pipex, copy);
