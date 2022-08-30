@@ -16,7 +16,7 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	*pipex;
 
-	if (argc != 6 && ft_strncmp(argv[1], "here_doc", 8) == 0)
+	if (argc != 6 || (argc != 6 && ft_strncmp(argv[1], "here_doc", 8) == 0))
 		return (ft_printf("Usage is <<< ./pipex infile cmd_1 cmd_2"\
 		" | ... | cmd_n outfile >>>\n\n\t---Or---\n\n"\
 		"<<< ./pipex here_doc LIMITER cmd_1 cmd_2 outfile >>>\n"));
