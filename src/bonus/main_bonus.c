@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:29:47 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/08/27 20:17:36 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/09/06 21:43:50 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	*pipex;
 
-	if (argc != 6 && ft_strncmp(argv[1], "here_doc", 8) == 0)
+	if (argc < 5
+		|| (argc != 6 && argv[1] != NULL
+			&& ft_strncmp(argv[1], "here_doc", 8) == 0))
 		return (ft_printf("Usage is <<< ./pipex infile cmd_1 cmd_2"\
 		" | ... | cmd_n outfile >>>\n\n\t---Or---\n\n"\
 		"<<< ./pipex here_doc LIMITER cmd_1 cmd_2 outfile >>>\n"));

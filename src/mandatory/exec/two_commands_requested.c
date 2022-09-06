@@ -29,8 +29,16 @@ static void	child_last(t_pipex *pipex, int *pipefd, char **argv, char **env)
 
 static void	child_one(t_pipex *p, int *pipefd, char **argv, char **env)
 {
-	close(pipefd[0]);
 	p->infile = open(argv[1], O_RDONLY);
+	if (p->infile == -1)
+	{
+		dup2(pipefd[0], STD_IN);
+		close(pipefd[0]);
+		dup2(pipefd[1], STD_OUT);
+		close(pipefd[1]);
+		clear_program(p, NULL);
+	}
+	close(pipefd[0]);
 	dup2(p->infile, STD_IN);
 	close(p->infile);
 	dup2(pipefd[1], STD_OUT);

@@ -52,8 +52,16 @@ static void	child_one(t_pipex *pipex, char **argv, char **env)
 {
 	t_pipex_cmd	*copy;
 
-	close(pipex->pipefd[0][0]);
 	pipex->infile = open(argv[1], O_RDONLY);
+	if (pipex->infile == -1)
+	{
+		dup2(pipex->pipefd[0][0], STD_IN);
+		close(pipex->pipefd[0][0]);
+		dup2(pipex->pipefd[0][1], STD_OUT);
+		close(pipex->pipefd[0][1]);
+		clear_program(pipex, NULL);
+	}
+	close(pipex->pipefd[0][0]);
 	dup2(pipex->infile, STD_IN);
 	close(pipex->infile);
 	dup2(pipex->pipefd[0][1], STD_OUT);
