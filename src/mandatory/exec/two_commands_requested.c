@@ -34,8 +34,11 @@ static void	child_one(t_pipex *p, int *pipefd, char **argv, char **env)
 	{
 		dup2(pipefd[0], STD_IN);
 		close(pipefd[0]);
+		close(STD_IN);
 		dup2(pipefd[1], STD_OUT);
 		close(pipefd[1]);
+		close(STD_OUT);
+		close(STD_ERR);
 		clear_program(p, NULL);
 	}
 	close(pipefd[0]);
