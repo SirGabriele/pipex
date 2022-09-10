@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/08/27 20:33:45 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/09/08 13:00:48 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,13 @@ EXEC_BONUS = prepare_bonus.c			\
 SRCS = $(addprefix src/mandatory/, $(SRC))		\
 	$(addprefix src/mandatory/init/, $(INIT))	\
 	$(addprefix src/mandatory/check/, $(CHECK))	\
-	$(addprefix src/mandatory/LL/, $(LL))		\
+	$(addprefix src/mandatory/ll/, $(LL))		\
 	$(addprefix src/mandatory/exec/, $(EXEC))
 
 SRCS_BONUS = $(addprefix src/bonus/, $(SRC_BONUS))	\
 	$(addprefix src/bonus/init/, $(INIT_BONUS))		\
 	$(addprefix src/bonus/check/, $(CHECK_BONUS))	\
-	$(addprefix src/bonus/LL/, $(LL))				\
+	$(addprefix src/bonus/ll/, $(LL))				\
 	$(addprefix src/bonus/exec/, $(EXEC_BONUS))
 
 CC = gcc

@@ -6,7 +6,7 @@
 #    By: kbrousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 12:29:47 by kbrousse          #+#    #+#              #
-#    Updated: 2022/07/20 20:42:03 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/09/08 13:11:51 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ MEMORY =	ft_memset.c  \
 			ft_memmove.c \
 			ft_calloc.c  \
 			ft_memchr.c  \
-			ft_memcmp.c  \
+			ft_memcmp.c 
 
 OUTPUT =	ft_putchar.c    \
 			ft_putchar_fd.c \
@@ -81,15 +81,15 @@ FT_PRINTF_ERROR = ft_printf_error.c				\
 				ft_printer_functions_error.c	\
 				ft_specifier_asked_error.c 
 
-SRCS   =	$(addprefix CHAR/, $(CHAR))					\
-			$(addprefix STR/, $(STR))					\
-			$(addprefix MEMORY/, $(MEMORY))				\
-			$(addprefix PUT/, $(OUTPUT))				\
-			$(addprefix ATOI-ITOA/, $(OTHER))			\
-			$(addprefix LL/, $(LL))						\
-			$(addprefix GNL_TDL/, $(GNL_TDL))				\
-			$(addprefix FT_PRINTF/, $(FT_PRINTF))			\
-			$(addprefix FT_PRINTF_ERROR/, $(FT_PRINTF_ERROR))
+SRCS   =	$(addprefix char/, $(CHAR))							\
+			$(addprefix str/, $(STR))							\
+			$(addprefix memory/, $(MEMORY))						\
+			$(addprefix put/, $(OUTPUT))						\
+			$(addprefix atoi-itoa/, $(OTHER))					\
+			$(addprefix ll/, $(LL))								\
+			$(addprefix gnl_tdl/, $(GNL_TDL))					\
+			$(addprefix ft_printf/, $(FT_PRINTF))				\
+			$(addprefix ft_printf_error/, $(FT_PRINTF_ERROR))
 	
 
 FLAGS =	-Wall -Wextra -Werror
@@ -125,4 +125,4 @@ $(NAME): $(OBJS)
 	@echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
 
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
